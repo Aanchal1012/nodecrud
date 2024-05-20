@@ -1,0 +1,27 @@
+first command is to open the terminal and type npm init -y
+this will create the package json with the required details
+
+now the next step is to create the index.js file which will be the brain for the backend, since this is 
+saved then we can call it in the terminal using node index.js and print the content of this file in the terminal
+
+but we need to call this index.js from package.json to do that we can simply add another key value pair inside
+the scripts of package.json as 
+serve:"node index.js" now when we run the command as npm run serve we can get the content of the index.js 
+
+for this project of building node API server we are going to use express framework and will be installing 
+that in the system 
+npm i express - for installing express, this will create the package-lock.json file and also the node_module folder
+the package.json file dependency will also be updated to hold the express version
+
+once installed we can use the express framework and start building the api, 
+key thing to note is that once we make any change to the server then in order for that change to reflect in browser
+we need to stop and re-start the server over and over again
+to avoid this we can install nodemon from npm packages and the change reflect in realtime
+npm i nodemon - install the nodemon dependency, to avoid restarting the server when any changes are made to it in 
+the code, 
+inorder for this to reflect simply update the package.json file script with a key:val pair to run 
+the server using nodemon instead of node, i.e dev : nodemon index.js and once saved , we can now simply call 
+npm run dev in the terminal and can see the changes reflect in the broswser as we are making the change
+
+time to connect the server to a database, we will be using mongodb, 
+to connect login to mongodb/atlas and create a new project to it
