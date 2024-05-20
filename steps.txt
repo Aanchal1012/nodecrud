@@ -25,3 +25,6 @@ npm run dev in the terminal and can see the changes reflect in the broswser as w
 
 time to connect the server to a database, we will be using mongodb, 
 to connect login to mongodb/atlas and create a new project to it
+
+
+check 
