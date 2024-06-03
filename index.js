@@ -93,7 +93,7 @@ app.delete('/api/product/:id', async(req,res) =>{
 });
 
 //connecting the database to server using mongoose
-mongoose.connect("mongodb+srv://admin:admin@backend.9wdwiiz.mongodb.net/node-API?retryWrites=true&w=majority&appName=backend")
+mongoose.connect("mongodb+srv://<id>:<password>@backend.9wdwiiz.mongodb.net/node-API?retryWrites=true&w=majority&appName=backend")
 .then(() => {
     console.log("connected to database");
     app.listen(3000, () => {
