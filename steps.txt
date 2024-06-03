@@ -27,4 +27,55 @@ time to connect the server to a database, we will be using mongodb,
 to connect login to mongodb/atlas and create a new project to it
 
 
-check 
+once project is created go ahead and create a new cluster where the db will be hosted 
+once this is set up we need to connect mongodb to our project and to do that open the connection that was
+created and click on connect, select drivers, then keep the drivers as node.js and follow the commands
+
+npm install mongodb - to install mongodb
+connection string obtained from the cluster connected in the backend 
+mongodb+srv://admin:<password>@backend.9wdwiiz.mongodb.net/?retryWrites=true&w=majority&appName=backend
+
+for us to access this server we need to import mongoose to connect to mongodb without having to wait for 
+mongo.connect() 
+npm i mongoose = to install mongoose 
+
+once install is done, then import it using const and we can connect to the mongodb database using 
+mongoose.connect(connection string)
+
+
+ideal is to connect to the database first and then the server, so i can move the server connection after 
+connecting to the database
+
+now that the backend db is connected we need a model that will store data to our database
+to do that create a folder and inside that we will be creating our models folloing a naming convention
+model.product.js here we import mongoose and creare the product schema which we want to store
+
+a thing to note is that once we make the post api request(/api/products) and test for it in postman by passing JSON values, 
+we will not be able to see the body even when it will be passed in postman because nodejs/express doesn't read JSON directly,
+it will need to use some middleware to read JSON and pass it.
+To set that up all we have to do is to call in the functionality of expess.json on the app we are trying to build
+
+
+without using the product.model.js, we can check if the api is working fine or not using postman, to do that we make the below changes
+app.use(express.json());
+app.post('/api/products',(req, res) => {
+    console.log(req.body);
+    res.send(req.body);
+});
+
+and if we pass the JSON body for this post request in postman we will be able to get the response in json
+
+but we need to do this for multiple bodies and in browser and save it in mongodb to do that
+here we will use await and async function with the post request
+we import the product.model.js and use await with async to do this
+
+
+now we need to update the product to do that we use put or patch commands
+once an update happens its good practice to check in the database and call it in by using await before sending the result
+
+we use delete http call to delete an item
+
+so far we were able to add products as json, but if we want to add product as form (the form in postman), then we just
+have to update the middleware to use the urlencoded config, the update is : app.use(express.urlencoded({extended:false}));
+use the x-www-form-urlencoded in postman to send this request
+
